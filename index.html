@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TKA Master Pro — Platform Latihan & Simulasi TKA SD, SMP, SMA No. 1 di Indonesia</title>
+  <meta name="description" content="Persiapkan Ujian TKA (Tes Kemampuan Akademik) SD, SMP, SMA dengan latihan CBT Adaptif, Analisis Diagnostik Kelemahan, & Pembahasan Pembelajaran Terlengkap. Rahasia Lolos PTN & Sekolah Favorit!">
+  
+  <!-- Font Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- MathJax untuk Render Formula Matematika / Fisika -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <style>
+    /* ============================================================
+       DESIGN SYSTEM & THEME TOKENS
+       ============================================================ */
+    :root {
+      --primary: #4F46E5;
+      --primary-hover: #4338CA;
+      --primary-light: #EEF2FF;
+      --secondary: #0EA5E9;
+      --accent: #10B981;
+      --warning: #F59E0B;
+      --danger: #EF4444;
+      
+      --bg-main: #F8FAFC;
+      --bg-card: #FFFFFF;
+      --border-color: #E2E8F0;
+      
+      --text-main: #0F172A;
+      --text-muted: #475569;
+      --text-white: #FFFFFF;
+
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+      
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 20px;
+      --radius-full: 9999px;
+    }
+
+    /* Dark Mode Tokens */
+    body.dark-mode {
+      --bg-main: #0F172A;
+      --bg-card: #1E293B;
+      --border-color: #334155;
+      --text-main: #F8FAFC;
+      --text-muted: #94A3B8;
+      --primary-light: #1E1B4B;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      line-height: 1.6;
+    }
+
+    /* Navbar Header */
+    .app-header {
+      background-color: var(--bg-card);
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      backdrop-filter: blur(8px);
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 900;
+      font-size: 1.35rem;
+      color: var(--primary);
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+
+    .brand-badge {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      font-size: 0.7rem;
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      border-radius: var(--radius-md);
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      border: none;
+      transition: all 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      justify-content: center;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-hover));
+      color: var(--text-white);
+      box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(79, 70, 229, 0.4);
+    }
+
+    .btn-accent {
+      background: linear-gradient(135deg, #10B981, #059669);
+      color: white;
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+    }
+    .btn-accent:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(16, 185, 129, 0.4);
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      border: 1.5px solid var(--border-color);
+      color: var(--text-main);
+    }
+    .btn-outline:hover {
+      background-color: var(--primary-light);
+      border-color: var(--primary);
+    }
+
+    /* Container Main Content */
+    .app-container {
+      max-width: 1240px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 24px 20px;
+      flex: 1;
+    }
+
+    /* Disclaimer Section Mandatory */
+    .disclaimer-banner {
+      background-color: #FEF3C7;
+      border-left: 4px solid var(--warning);
+      color: #92400E;
+      padding: 12px 18px;
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* Views Logic */
+    .view-page {
+      display: none;
+      animation: fadeIn 0.4s ease;
+    }
+    .view-page.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ============================================================
+       AIDA LANDING PAGE SPECIFIC STYLES
+       ============================================================ */
+
+    /* ATTENTION: HERO SECTION */
+    .hero-section {
+      text-align: center;
+      padding: 40px 20px 60px;
+      position: relative;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--primary-light);
+      color: var(--primary);
+      padding: 6px 16px;
+      border-radius: var(--radius-full);
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      border: 1px solid rgba(79, 70, 229, 0.2);
+    }
+
+    .hero-title {
+      font-size: 2.8rem;
+      font-weight: 900;
+      line-height: 1.25;
+      margin-bottom: 20px;
+      letter-spacing: -1px;
+    }
+
+    .hero-highlight {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 760px;
+      margin: 0 auto 32px;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* SOCIAL PROOF COUNTER BAR */
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      margin: 40px 0 60px;
+      box-shadow: var(--shadow-md);
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--primary);
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    /* INTEREST: PAIN POINTS & FEATURES */
+    .section-header {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 40px;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .section-subtitle {
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+    }
+
+    .feature-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--primary);
+    }
+
+    .feature-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: var(--radius-md);
+      background: var(--primary-light);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+
+    /* DESIRE: PRICING & BENEFIT COMPARISON */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .pricing-card {
+      background-color: var(--bg-card);
+      border: 2px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pricing-card.popular {
+      border-color: var(--primary);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .popular-tag {
+      position: absolute;
+      top: -14px;
+      right: 24px;
+      background: var(--primary);
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 4px 14px;
+      border-radius: var(--radius-full);
+      text-transform: uppercase;
+    }
+
+    .price-amount {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--text-main);
+      margin: 16px 0;
+    }
+
+    .price-period {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .feature-list {
+      list-style: none;
+      margin: 24px 0;
+      flex: 1;
+    }
+
+    .feature-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.9rem;
+      margin-bottom: 12px;
+      color: var(--text-main);
+    }
+
+    /* TESTIMONIAL & TRUST */
+    .testimonial-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+    }
+
+    .user-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-full);
+      background: var(--primary);
+      color: white;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* FAQ ACCORDION */
+    .faq-item {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+
+    .faq-question {
+      padding: 18px 24px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-answer {
+      padding: 0 24px 18px;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* Auth & CBT Layout Base */
+    .auth-card {
+      max-width: 440px;
+      margin: 40px auto;
+      background-color: var(--bg-card);
+      padding: 32px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .form-group { margin-bottom: 16px; }
+    .form-label { display: block; font-size: 0.875rem; font-weight: 600; margin-bottom: 6px; }
+    .form-input, .form-select {
+      width: 100%; padding: 12px 14px; border-radius: var(--radius-md);
+      border: 1px solid var(--border-color); background-color: var(--bg-main);
+      color: var(--text-main); font-size: 0.9rem; outline: none;
+    }
+
+    /* CBT Engine Player */
+    .cbt-container {
+      display: grid; grid-template-columns: 1fr 320px; gap: 20px;
+    }
+    @media (max-width: 768px) {
+      .cbt-container { grid-template-columns: 1fr; }
+      .hero-title { font-size: 2rem; }
+    }
+
+    .soal-card {
+      background-color: var(--bg-card); border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg); padding: 24px;
+    }
+
+    .option-item {
+      display: flex; align-items: flex-start; gap: 12px; padding: 14px 18px;
+      border: 1px solid var(--border-color); border-radius: var(--radius-md);
+      margin-top: 10px; cursor: pointer; transition: all 0.2s ease;
+    }
+    .option-item:hover { background-color: var(--primary-light); }
+    .option-item.selected { border-color: var(--primary); background-color: var(--primary-light); }
+
+    .soal-nav-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+    .soal-num-btn {
+      padding: 10px; border-radius: var(--radius-sm); border: 1px solid var(--border-color);
+      background: var(--bg-main); font-weight: 600; font-size: 0.85rem; cursor: pointer; text-align: center;
+    }
+    .soal-num-btn.dijawab { background-color: var(--primary); color: white; border-color: var(--primary); }
+    .soal-num-btn.ragu { background-color: var(--warning); color: white; border-color: var(--warning); }
+    .soal-num-btn.active { border-color: var(--primary); box-shadow: 0 0 0 2px var(--primary-light); }
+
+    .toast {
+      position: fixed; bottom: 20px; right: 20px; background: #1E293B; color: white;
+      padding: 12px 20px; border-radius: var(--radius-md); font-size: 0.9rem;
+      box-shadow: var(--shadow-lg); z-index: 100; display: none; animation: fadeIn 0.3s ease;
+    }
+
+    /* Floating WhatsApp Button */
+    .wa-float-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background-color: #25D366;
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
+      z-index: 999;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .wa-float-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+    }
+    .wa-float-btn svg {
+      width: 32px;
+      height: 32px;
+      fill: currentColor;
+    }
+
+    .app-footer {
+      border-top: 1px solid var(--border-color); padding: 30px 20px; text-align: center;
+      font-size: 0.85rem; color: var(--text-muted); margin-top: auto; background-color: var(--bg-card);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="toast-msg" class="toast"></div>
+
+  <!-- FLOATING WHATSAPP BUTTON -->
+  <a href="https://wa.me/6282243895678?text=Halo%20Admin%20TKA%20Master,%20saya%20ingin%20bertanya%20mengenai%20paket%20latihan%20TKA" target="_blank" class="wa-float-btn" title="Hubungi Admin via WhatsApp">
+    <svg viewBox="0 0 24 24">
+      <path d="M12.031 2c-5.514 0-9.997 4.484-9.997 9.998 0 1.764.459 3.49 1.332 5.006l-1.366 4.996 5.115-1.342c1.467.8 3.125 1.22 4.916 1.22 5.514 0 9.997-4.484 9.997-9.998 0-5.514-4.483-9.998-9.997-9.998zm0 18.256c-1.572 0-3.11-.424-4.449-1.226l-.319-.19-3.048.8.814-2.973-.208-.33c-.88-1.396-1.345-3.023-1.345-4.697 0-4.707 3.83-8.537 8.542-8.537 4.712 0 8.542 3.83 8.542 8.537 0 4.708-3.83 8.616-8.528 8.616zm4.686-6.438c-.257-.129-1.522-.751-1.757-.837-.235-.086-.406-.129-.577.129-.17.257-.663.837-.813 1.008-.15.171-.3.193-.557.064-.257-.129-1.085-.4-2.067-1.276-.763-.68-1.279-1.52-1.429-1.777-.15-.257-.016-.396.113-.524.116-.115.257-.3.385-.45.129-.15.171-.257.257-.428.086-.171.043-.321-.021-.45-.064-.129-.577-1.393-.791-1.907-.208-.5-.42-.432-.577-.439l-.492-.009c-.171 0-.45.064-.685.321-.235.257-.9.879-.9 2.143 0 1.264.92 2.486 1.049 2.657.129.171 1.812 2.768 4.39 3.882.613.264 1.092.421 1.465.54.616.196 1.176.168 1.619.102.496-.074 1.522-.622 1.736-1.222.214-.6.214-1.114.15-1.222-.064-.108-.235-.172-.492-.301z"/>
+    </svg>
+  </a>
+
+  <!-- HEADER NAVIGATION -->
+  <header class="app-header">
+    <a href="#" class="brand-logo" onclick="showView('home')">
+      <span>⚡ TKA MASTER</span>
+      <span class="brand-badge">PRO v1.0</span>
+    </a>
+    
+    <div class="header-actions">
+      <button class="btn btn-outline" id="theme-toggle" onclick="toggleTheme()">🌙 Mode Gelap</button>
+      <div id="nav-user-guest">
+        <button class="btn btn-outline" onclick="showView('login')">Masuk</button>
+        <button class="btn btn-primary" onclick="showView('register')">Daftar Akun</button>
+      </div>
+      <div id="nav-user-logged" style="display: none;">
+        <button class="btn btn-outline" onclick="showView('dashboard')">📊 Dashboard</button>
+        <button class="btn btn-outline" onclick="showView('voucher')">🎟️ Voucher</button>
+        <span id="user-display-name" style="font-weight: 700; font-size: 0.9rem; padding: 0 4px;">Siswa</span>
+        <button class="btn btn-outline" onclick="doLogout()">Keluar</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTAINER UTAMA -->
+  <main class="app-container">
+    
+    <!-- DISCLAIMER LEGAL RESMI -->
+    <div class="disclaimer-banner">
+      <span>⚠️</span>
+      <div>
+        <strong>Pemberitahuan Resmi:</strong> Platform independen untuk latihan mandiri & <u>BUKAN</u> produk resmi Kemendikdasmen.
+      </div>
+    </div>
+
+    <!-- ============================================================
+         AIDA LANDING PAGE (VIEW 1)
+         ============================================================ -->
+    <section id="view-home" class="view-page active">
+      
+      <!-- 1. ATTENTION (PENARIK PERHATIAN UTAMA) -->
+      <div class="hero-section">
+        <div class="hero-pill">🔥 Platform Persiapan TKA No. 1 Berbasis Asesmen Nasional</div>
+        <h1 class="hero-title">
+          Jangan Biarkan Skor Ujian Menghentikan <br>
+          <span class="hero-highlight">Mimpi & Masa Depan Sekolah Favoritmu!</span>
+        </h1>
+        <p class="hero-subtitle">
+          Kuasai Tes Kemampuan Akademik (TKA) SD, SMP, & SMA dengan latihan CBT Adaptif real-time, bank soal ter-update, dan analisis diagnostik titik kelemahanmu secara otomatis!
+        </p>
+        <div class="hero-cta-group">
+          <button class="btn btn-accent" style="padding: 14px 32px; font-size: 1.05rem;" onclick="mulaiSimulasiDemo()">🎮 Coba Simulasi CBT Gratis</button>
+          <button class="btn btn-primary" style="padding: 14px 32px; font-size: 1.05rem;" onclick="showView('register')">🚀 Daftar Akun Sekarang</button>
+        </div>
+      </div>
+
+      <!-- SOCIAL PROOF / TRUST STATS -->
+      <div class="stats-bar">
+        <div>
+          <div class="stat-number">50.000+</div>
+          <div class="stat-label">Soal TKA Terstandar</div>
+        </div>
+        <div>
+          <div class="stat-number">98,4%</div>
+          <div class="stat-label">Tingkat Kepuasan Siswa</div>
+        </div>
+        <div>
+          <div class="stat-number">38.000+</div>
+          <div class="stat-label">Siswa Lolos Sekolah/PTN Favorit</div>
+        </div>
+        <div>
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Bisa di HP Murah & Hemat Kuota</div>
+        </div>
+      </div>
+
+      <!-- 2. INTEREST (MEMBANGKITKAN MINAT & SOLUSI PROBLEM) -->
+      <div style="margin: 60px 0;">
+        <div class="section-header">
+          <h2 class="section-title">Mengapa Siswa Sering Gagal di Tes TKA?</h2>
+          <p class="section-subtitle">Kebanyakan siswa belajar dengan cara salah: sekadar menghafal tanpa tahu letak kelemahannya. TKA Master hadir membawa solusi modern!</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h3 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 10px;">Analisis Diagnostik Otomatis</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">Sistem AI kami langsung mendeteksi sub-elemen materi mana yang paling lemah, sehingga kamu bisa fokus belajar secara presisi tanpa buang waktu.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 10px;">Engine CBT Adaptif & Cepat</h3>
+            <p style="color: var(--text-muted); font-size: 0.9mid;">Simulasi ujian yang mirip persis dengan CBT resmi. Sistem sangat ringan, tidak *lag*, dan hemat kuota bahkan di HP android murah.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">💡</div>
+            <h3 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 10px;">Pembahasan Super Lengkap</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">Setiap soal dilengkapi konsep dasar, cara cepat, dan render formula matematika/fisika jernih tanpa gambar buram.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. DESIRE (MENUMBUHKAN KEINGINAN BERLANGGANAN & PRICING) -->
+      <div style="margin: 80px 0;">
+        <div class="section-header">
+          <h2 class="section-title">Pilih Paket Belajar Sesuai Kebutuhanmu</h2>
+          <p class="section-subtitle">Investasi termurah untuk masa depan pendidikan terbaik. Tanpa biaya tersembunyi!</p>
+        </div>
+
+        <div class="pricing-grid">
+          <!-- Paket Gratis -->
+          <div class="pricing-card">
+            <h3 style="font-size: 1.25rem; font-weight: 800;">Paket Starter</h3>
+            <p style="color: var(--text-muted); font-size: 0.85rem;">Untuk Uji Coba Awal</p>
+            <div class="price-amount">Gratis</div>
+            <ul class="feature-list">
+              <li>✅ Akses 5x Latihan Per Hari</li>
+              <li>✅ Bank Soal Dasar SD, SMP, SMA</li>
+              <li>✅ Skor Langsung Keluar</li>
+              <li>❌ Analisis Diagnostik Mendalam</li>
+              <li>❌ Pembahasan Soal Terlengkap</li>
+            </ul>
+            <button class="btn btn-outline" style="width: 100%;" onclick="showView('register')">Mulai Gratis</button>
+          </div>
+
+          <!-- Paket PRO (POPULAR) -->
+          <div class="pricing-card popular">
+            <span class="popular-tag">PALING LARIS</span>
+            <h3 style="font-size: 1.25rem; font-weight: 800;">Paket PRO UNLIMITED</h3>
+            <p style="color: var(--text-muted); font-size: 0.85rem;">Akses Penuh Tanpa Batas 1 Tahun</p>
+            <div class="price-amount">Rp 49.000 <span class="price-period">/ tahun</span></div>
+            <ul class="feature-list">
+              <li>✅ <strong>UNLIMITED</strong> Tryout & Latihan Soal</li>
+              <li>✅ <strong>Bank Soal 50.000+</strong> Terstandar TKA</li>
+              <li>✅ <strong>Analisis Diagnostik AI</strong> Kelemahan Sub-Elemen</li>
+              <li>✅ Pembahasan & Cara Cepat Matematika</li>
+              <li>✅ Sertifikat Hasil Simulasi</li>
+              <li>✅ Garansi Akses Anti-Lag</li>
+            </ul>
+            <button class="btn btn-primary" style="width: 100%; font-size: 1rem;" onclick="showView('register')">🔥 Ambil Promo Rp 49rb</button>
+          </div>
+
+          <!-- Paket Reseller / Sekolah -->
+          <div class="pricing-card">
+            <h3 style="font-size: 1.25rem; font-weight: 800;">Paket Kolektif / Sekolah</h3>
+            <p style="color: var(--text-muted); font-size: 0.85rem;">Untuk Reseller, Bimbingan Belajar & Sekolah</p>
+            <div class="price-amount">Hubungi WA</div>
+            <ul class="feature-list">
+              <li>✅ Batch Voucher 50 - 1000+ Lisensi</li>
+              <li>✅ Dashboard Khusus Guru / Reseller</li>
+              <li>✅ Komisi Menarik untuk Agen</li>
+              <li>✅ Rekapitulasi Nilai Siswa Excel</li>
+            </ul>
+            <a href="https://wa.me/6282243895678?text=Halo%20Admin%20TKA%20Master,%20saya%20tertarik%20paket%20sekolah/reseller" target="_blank" class="btn btn-outline" style="width: 100%; text-align: center;">Chat Admin WA</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- TESTIMONIALS (KEPERCAYAAN & SOSIAL) -->
+      <div style="margin: 80px 0;">
+        <div class="section-header">
+          <h2 class="section-title">Apa Kata Siswa yang Sudah Lolos?</h2>
+          <p class="section-subtitle">Ribuan siswa telah membuktikan peningkatan skor TKA secara drastis!</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="testimonial-card">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+              <div class="user-avatar">AF</div>
+              <div>
+                <strong style="font-size: 0.95rem;">Ahmad Fauzi</strong>
+                <div style="font-size: 0.8rem; color: var(--text-muted);">Lolos SMAN 1 Jakarta (SMA)</div>
+              </div>
+            </div>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">"Analisis diagnostiknya juara banget! Saya jadi tahu kalau kelemahan saya di geometri. Setelah fokus latihan topik itu di TKA Master, skor TKA saya naik dari 60 ke 92!"</p>
+          </div>
+
+          <div class="testimonial-card">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+              <div class="user-avatar" style="background: var(--secondary);">NPR</div>
+              <div>
+                <strong style="font-size: 0.95rem;">Nabila Putri</strong>
+                <div style="font-size: 0.8rem; color: var(--text-muted);">Siswa SMP N 2 Surabaya</div>
+              </div>
+            </div>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">"Aplikasi ini sangat ringan di HP Android saya. Nggak bikin cepat panas dan soal-soal Bahasa Indonesianya benar-benar sesuai standar asesmen terbaru."</p>
+          </div>
+
+          <div class="testimonial-card">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+              <div class="user-avatar" style="background: var(--accent);">RD</div>
+              <div>
+                <strong style="font-size: 0.95rem;">Reza Rahardian</strong>
+                <div style="font-size: 0.8rem; color: var(--text-muted);">Siswa SD Kelas 6 Bandung</div>
+              </div>
+            </div>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">"Belajar TKA Matematika SD jadi seru karena tampilan aplikasinya bersih dan ada timernya persis kayak ujian asli di sekolah."</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. ACTION (PANGGILAN AKSI AKHIR / CLOSING CTA) -->
+      <div style="background: linear-gradient(135deg, var(--primary-hover), var(--primary)); color: white; border-radius: var(--radius-lg); padding: 50px 20px; text-align: center; margin: 60px 0;">
+        <h2 style="font-size: 2.2rem; font-weight: 900; margin-bottom: 16px;">Siap Raih Skor TKA Tertinggi Hari Ini?</h2>
+        <p style="font-size: 1.1rem; opacity: 0.9; max-width: 600px; margin: 0 auto 30px;">
+          Daftar akun sekarang dan dapatkan akses langsung ke simulasi CBT TKA Master. Jangan tunda kesuksesan akademismu!
+        </p>
+        <button class="btn btn-accent" style="padding: 16px 36px; font-size: 1.1rem;" onclick="showView('register')">⚡ Ambil Diskon Promo & Daftar Sekarang</button>
+      </div>
+
+      <!-- FAQ ACCORDION -->
+      <div style="margin: 60px 0;">
+        <div class="section-header">
+          <h2 class="section-title">Pertanyaan Sering Diajukan (FAQ)</h2>
+        </div>
+
+        <div style="max-width: 800px; margin: 0 auto;">
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              <span>Apakah TKA Master bisa diakses di Smartphone HP?</span>
+              <span>➕</span>
+            </div>
+            <div class="faq-answer" style="display: none;">
+              Ya! Platform TKA Master dirancang khusus Mobile-First. Anda dapat mengaksesnya dengan lancar melalui browser HP (Chrome/Safari) tanpa perlu mendownload aplikasi berat.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              <span>Bagaimana cara mengaktifkan Paket PRO setelah membeli voucher?</span>
+              <span>➕</span>
+            </div>
+            <div class="faq-answer" style="display: none;">
+              Cukup masuk ke akun Anda, klik menu "Voucher" di kanan atas header, lalu masukkan Kode Voucher yang Anda dapatkan dari reseller/admin. Paket PRO akan langsung aktif seketika.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              <span>Apakah soal-soal selalu diperbarui?</span>
+              <span>➕</span>
+            </div>
+            <div class="faq-answer" style="display: none;">
+              Tentu saja! Bank soal TKA Master disesuaikan secara berkala mengikuti standar indikator dan elemen asesmen akademis terbaru untuk SD, SMP, dan SMA.
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- VIEW 2: LOGIN -->
+    <section id="view-login" class="view-page">
+      <div class="auth-card">
+        <h2 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 8px;">Masuk ke Akun TKA</h2>
+        <p style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 24px;">Masukkan email dan kata sandi Anda untuk melanjutkan latihan.</p>
+        <form onsubmit="handleLogin(event)">
+          <div class="form-group">
+            <label class="form-label">Email</label>
+            <input type="email" id="login-email" class="form-input" required placeholder="nama@email.com">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Kata Sandi</label>
+            <input type="password" id="login-password" class="form-input" required placeholder="••••••••">
+          </div>
+          <button type="submit" class="btn btn-primary" id="btn-login" style="width: 100%; margin-top: 8px;">Masuk Sekarang</button>
+        </form>
+        <p style="text-align: center; margin-top: 20px; font-size: 0.85rem; color: var(--text-muted);">
+          Belum punya akun? <a href="#" onclick="showView('register')" style="color: var(--primary); font-weight: 700;">Daftar Akun Baru</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- VIEW 3: REGISTER -->
+    <section id="view-register" class="view-page">
+      <div class="auth-card">
+        <h2 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 8px;">Pendaftaran Siswa TKA</h2>
+        <p style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 24px;">Buat akun siswa gratis untuk mulai mengakses simulasi CBT TKA.</p>
+        <form onsubmit="handleRegister(event)">
+          <div class="form-group">
+            <label class="form-label">Nama Lengkap Siswa</label>
+            <input type="text" id="reg-nama" class="form-input" required placeholder="Ahmad Fauzi">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email Aktif</label>
+            <input type="email" id="reg-email" class="form-input" required placeholder="ahmad@gmail.com">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Nomor WhatsApp (Untuk Notifikasi)</label>
+            <input type="tel" id="reg-wa" class="form-input" required placeholder="081234567890">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Jenjang Pendidikan</label>
+            <select id="reg-jenjang" class="form-select" required onchange="updateKelasOptions()">
+              <option value="SD">SD (Sekolah Dasar)</option>
+              <option value="SMP">SMP (Sekolah Menengah Pertama)</option>
+              <option value="SMA">SMA / MA</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Kelas</label>
+            <select id="reg-kelas" class="form-select" required>
+              <!-- Populated by JS -->
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Kata Sandi</label>
+            <input type="password" id="reg-password" class="form-input" required minlength="6" placeholder="Minimal 6 karakter">
+          </div>
+          <button type="submit" class="btn btn-primary" id="btn-register" style="width: 100%; margin-top: 8px;">Daftar Akun Sekarang</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- VIEW 4: DASHBOARD SISWA -->
+    <section id="view-dashboard" class="view-page">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 12px;">
+        <div>
+          <h2 style="font-size: 1.6rem; font-weight: 800;">Dashboard Belajar Siswa</h2>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">Selamat datang! Siap meningkatkan skor TKA hari ini?</p>
+        </div>
+        <button class="btn btn-accent" onclick="mulaiSimulasiDemo()">🎮 Mulai Simulasi CBT TKA</button>
+      </div>
+
+      <div class="grid-3" style="margin-bottom: 32px;">
+        <div class="card" style="background-color: var(--bg-card); border: 1px solid var(--border-color); padding: 20px; border-radius: var(--radius-lg);">
+          <div style="color: var(--text-muted); font-size: 0.85rem; font-weight: 600;">Total Simulasi Ujian</div>
+          <div style="font-size: 2.2rem; font-weight: 900; color: var(--primary);" id="dash-total-latihan">0</div>
+        </div>
+        <div class="card" style="background-color: var(--bg-card); border: 1px solid var(--border-color); padding: 20px; border-radius: var(--radius-lg);">
+          <div style="color: var(--text-muted); font-size: 0.85rem; font-weight: 600;">Rata-rata Skor TKA</div>
+          <div style="font-size: 2.2rem; font-weight: 900; color: var(--accent);" id="dash-rata-skor">0</div>
+        </div>
+        <div class="card" style="background-color: var(--bg-card); border: 1px solid var(--border-color); padding: 20px; border-radius: var(--radius-lg);">
+          <div style="color: var(--text-muted); font-size: 0.85rem; font-weight: 600;">Status Langganan</div>
+          <div style="font-size: 1.2rem; font-weight: 800; color: var(--warning); margin-top: 6px;" id="dash-status-paket">GRATIS</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 5: PAKET VOUCHER -->
+    <section id="view-voucher" class="view-page">
+      <div class="auth-card" style="max-width: 500px;">
+        <h2 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 8px;">Aktivasi Kode Voucher PRO</h2>
+        <p style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 24px;">Masukkan kode voucher promo atau dari reseller untuk membuka akses unlimited TKA Master.</p>
+        <form onsubmit="handleAktivasiVoucher(event)">
+          <div class="form-group">
+            <label class="form-label">Kode Voucher</label>
+            <input type="text" id="voucher-code" class="form-input" style="text-transform: uppercase; font-weight: 800; letter-spacing: 2px;" required placeholder="CONTOH: TKA-PRO-2026">
+          </div>
+          <button type="submit" class="btn btn-primary" style="width: 100%;">Aktivasi Sekarang</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- VIEW 6: CBT PLAYER ENGINE -->
+    <section id="view-cbt" class="view-page">
+      <div class="cbt-container">
+        <!-- Main Question Area -->
+        <div class="soal-card">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; border-bottom: 1px solid var(--border-color); padding-bottom: 12px;">
+            <span style="font-weight: 800;" id="cbt-soal-num">Soal No. 1</span>
+            <span style="background: #FEF3C7; color: #92400E; padding: 6px 14px; border-radius: var(--radius-full); font-weight: 800; font-size: 0.85rem;" id="cbt-timer">⏱️ 45:00</span>
+          </div>
+
+          <div id="cbt-stimulus" style="margin-bottom: 16px; line-height: 1.6; font-size: 0.95rem; color: var(--text-muted);">
+            <!-- Stimulus Teks / Gambar -->
+          </div>
+
+          <div id="cbt-pertanyaan" style="font-weight: 700; font-size: 1.05rem; margin-bottom: 20px;">
+            Loading pertanyaan...
+          </div>
+
+          <div id="cbt-pilihan-list">
+            <!-- Pilihan Jawaban (PG / PGK) -->
+          </div>
+
+          <div style="display: flex; justify-content: space-between; margin-top: 24px; border-top: 1px solid var(--border-color); padding-top: 16px;">
+            <button class="btn btn-outline" onclick="cbtPrevSoal()">← Sebelumnya</button>
+            <button class="btn btn-outline" style="border-color: var(--warning); color: var(--warning);" onclick="cbtTandaiRagu()">📌 Ragu-Ragu</button>
+            <button class="btn btn-primary" onclick="cbtNextSoal()">Selanjutnya →</button>
+          </div>
+        </div>
+
+        <!-- Right Side Nav Grid -->
+        <div style="background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 20px; height: fit-content;">
+          <h4 style="font-size: 1rem; font-weight: 800; margin-bottom: 14px;">Navigasi Nomor Ujian</h4>
+          <div class="soal-nav-grid" id="cbt-nav-grid">
+            <!-- Render 1..N numbers -->
+          </div>
+          <button class="btn btn-accent" style="width: 100%; margin-top: 24px;" onclick="cbtSubmit()">Selesaikan Ujian</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="app-footer">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px; text-align: left; margin-bottom: 20px;">
+      <div>
+        <div class="brand-logo" style="margin-bottom: 10px;">⚡ TKA MASTER PRO</div>
+        <p style="max-width: 360px; font-size: 0.85rem; color: var(--text-muted);">Platform latihan dan simulasi Asesmen Tes Kemampuan Akademik (TKA) terdepan di Indonesia.</p>
+      </div>
+      <div>
+        <strong style="display: block; margin-bottom: 10px;">Navigasi</strong>
+        <p><a href="#" onclick="showView('home')" style="color: var(--text-muted); text-decoration: none;">Beranda</a></p>
+        <p><a href="#" onclick="showView('register')" style="color: var(--text-muted); text-decoration: none;">Daftar Akun</a></p>
+        <p><a href="#" onclick="showView('login')" style="color: var(--text-muted); text-decoration: none;">Login Siswa</a></p>
+      </div>
+      <div>
+        <strong style="display: block; margin-bottom: 10px;">Bantuan & Kontak</strong>
+        <p style="color: var(--text-muted);">WhatsApp Admin: <a href="https://wa.me/6282243895678" target="_blank" style="color: inherit; text-decoration: underline;">0822-4389-5678</a></p>
+        <p style="color: var(--text-muted);">Email: <a href="mailto:tegodeveloper@gmail.com" style="color: inherit; text-decoration: underline;">tegodeveloper@gmail.com</a></p>
+      </div>
+    </div>
+    <div style="border-top: 1px solid var(--border-color); padding-top: 16px;">
+      <p>© 2026 Platform Latihan TKA (Tes Kemampuan Akademik). Hak Cipta Dilindungi.</p>
+      <p style="font-size: 0.75rem; margin-top: 4px; color: var(--text-muted);">Aplikasi ini adalah produk independen & BUKAN merupakan produk resmi Kemendikdasmen.</p>
+    </div>
+  </footer>
+
+  <script>
+    /* ============================================================
+       APP ENGINE FRONTEND JAVASCRIPT & FULL GAS INTEGRATION
+       ============================================================ */
+    
+    // Web App Google Apps Script URL
+    const API_URL = "YOUR_GAS_WEB_APP_URL";
+
+    let state = {
+      user: null,
+      token: localStorage.getItem('tka_token') || '',
+      theme: localStorage.getItem('tka_theme') || 'light',
+      cbt: {
+        percobaanId: null,
+        soalList: [],
+        currentIndex: 0,
+        jawaban: {},
+        ragu: {},
+        timerInterval: null,
+        sisaDetik: 0
+      }
+    };
+
+    // FAQ Toggle Handler
+    function toggleFaq(el) {
+      const answer = el.nextElementSibling;
+      const icon = el.querySelector('span:last-child');
+      if (answer.style.display === 'none' || !answer.style.display) {
+        answer.style.display = 'block';
+        icon.innerText = '➖';
+      } else {
+        answer.style.display = 'none';
+        icon.innerText = '➕';
+      }
+    }
+
+    // Helper Toast Notification
+    function showToast(msg) {
+      const toast = document.getElementById('toast-msg');
+      toast.innerText = msg;
+      toast.style.display = 'block';
+      setTimeout(() => { toast.style.display = 'none'; }, 3000);
+    }
+
+    // Helper Fetch API ke GAS Backend
+    async function callBackend(action, data = {}) {
+      if (API_URL === "YOUR_GAS_WEB_APP_URL") {
+        console.warn("API_URL belum dikonfigurasi. Menggunakan Mode Standalone Client Demo.");
+        return null;
+      }
+
+      try {
+        const bodyData = { action, token: state.token, ...data };
+        const res = await fetch(API_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify(bodyData)
+        });
+        return await res.json();
+      } catch (err) {
+        console.error("Backend Error:", err);
+        showToast("Gagal terhubung ke server backend.");
+        return null;
+      }
+    }
+
+    // Initialize App
+    window.addEventListener('DOMContentLoaded', () => {
+      initTheme();
+      updateKelasOptions();
+      if (state.token) {
+        checkUserSession();
+      }
+    });
+
+    // Navigation Router View
+    function showView(viewName) {
+      document.querySelectorAll('.view-page').forEach(page => {
+        page.classList.remove('active');
+      });
+      const target = document.getElementById('view-' + viewName);
+      if (target) {
+        target.classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    // Theme Switcher
+    function initTheme() {
+      if (state.theme === 'dark') {
+        document.body.classList.add('dark-mode');
+        document.getElementById('theme-toggle').innerText = '☀️ Mode Terang';
+      }
+    }
+
+    function toggleTheme() {
+      document.body.classList.toggle('dark-mode');
+      const isDark = document.body.classList.contains('dark-mode');
+      state.theme = isDark ? 'dark' : 'light';
+      localStorage.setItem('tka_theme', state.theme);
+      document.getElementById('theme-toggle').innerText = isDark ? '☀️ Mode Terang' : '🌙 Mode Gelap';
+    }
+
+    // Dynamic Options Kelas berdasarkan Jenjang
+    function updateKelasOptions() {
+      const jenjang = document.getElementById('reg-jenjang').value;
+      const selectKelas = document.getElementById('reg-kelas');
+      selectKelas.innerHTML = '';
+
+      let options = [];
+      if (jenjang === 'SD') options = ['Kelas 4', 'Kelas 5', 'Kelas 6'];
+      else if (jenjang === 'SMP') options = ['Kelas 7', 'Kelas 8', 'Kelas 9'];
+      else if (jenjang === 'SMA') options = ['Kelas 10', 'Kelas 11', 'Kelas 12'];
+
+      options.forEach(opt => {
+        const el = document.createElement('option');
+        el.value = opt;
+        el.innerText = opt;
+        selectKelas.appendChild(el);
+      });
+    }
+
+    // Handler Auth: Register
+    async function handleRegister(e) {
+      e.preventDefault();
+      const nama = document.getElementById('reg-nama').value;
+      const email = document.getElementById('reg-email').value;
+      const no_wa = document.getElementById('reg-wa').value;
+      const jenjang = document.getElementById('reg-jenjang').value;
+      const kelas = document.getElementById('reg-kelas').value;
+      const password = document.getElementById('reg-password').value;
+
+      const res = await callBackend('daftar', { nama_lengkap: nama, email, no_wa, jenjang, kelas, password });
+
+      if (res && res.ok) {
+        showToast("Pendaftaran berhasil! Silakan login.");
+        showView('login');
+      } else if (res && !res.ok) {
+        showToast(res.pesan || "Pendaftaran gagal.");
+      } else {
+        showToast("Pendaftaran berhasil (Mode Demo). Silakan login.");
+        showView('login');
+      }
+    }
+
+    // Handler Auth: Login
+    async function handleLogin(e) {
+      e.preventDefault();
+      const email = document.getElementById('login-email').value;
+      const password = document.getElementById('login-password').value;
+
+      const res = await callBackend('login', { email, password });
+
+      if (res && res.ok) {
+        state.token = res.data.token;
+        state.user = res.data.user;
+        localStorage.setItem('tka_token', state.token);
+        updateUserUI();
+        showToast("Berhasil masuk!");
+        showView('dashboard');
+      } else if (res && !res.ok) {
+        showToast(res.pesan || "Login gagal.");
+      } else {
+        state.token = "demo-token-123";
+        state.user = { nama_lengkap: "Ahmad Siswa", jenjang: "SMA", kelas: "Kelas 12" };
+        localStorage.setItem('tka_token', state.token);
+        updateUserUI();
+        showToast("Login berhasil (Mode Demo)");
+        showView('dashboard');
+      }
+    }
+
+    function doLogout() {
+      if (state.token && API_URL !== "YOUR_GAS_WEB_APP_URL") {
+        callBackend('logout');
+      }
+      localStorage.removeItem('tka_token');
+      state.user = null;
+      state.token = '';
+      document.getElementById('nav-user-guest').style.display = 'flex';
+      document.getElementById('nav-user-logged').style.display = 'none';
+      showToast("Anda telah keluar.");
+      showView('home');
+    }
+
+    async function checkUserSession() {
+      const res = await callBackend('cekToken');
+      if (res && res.ok) {
+        state.user = res.data;
+        updateUserUI();
+      } else if (!res) {
+        state.user = { nama_lengkap: "Ahmad Siswa", jenjang: "SMA", kelas: "Kelas 12" };
+        updateUserUI();
+      } else {
+        doLogout();
+      }
+    }
+
+    function updateUserUI() {
+      document.getElementById('nav-user-guest').style.display = 'none';
+      document.getElementById('nav-user-logged').style.display = 'flex';
+      document.getElementById('user-display-name').innerText = state.user ? state.user.nama_lengkap : 'Siswa';
+    }
+
+    // Handler Aktivasi Voucher
+    async function handleAktivasiVoucher(e) {
+      e.preventDefault();
+      const kode = document.getElementById('voucher-code').value;
+      const res = await callBackend('aktifkanVoucher', { kodeVoucher: kode });
+
+      if (res && res.ok) {
+        showToast(res.pesan);
+        document.getElementById('dash-status-paket').innerText = "PRO (AKTIF)";
+        document.getElementById('dash-status-paket').style.color = "var(--accent)";
+        showView('dashboard');
+      } else {
+        showToast(res ? res.pesan : "Voucher berhasil diaktivasi (Demo Mode).");
+      }
+    }
+
+    // CBT ENGINE ENGINE LOGIC
+    function mulaiSimulasiDemo() {
+      const demoSoal = [
+        {
+          soal_id: "S01",
+          bentuk_soal: "PG",
+          stimulus_teks: "Bacalah paragraf berikut dengan cermat untuk menjawab pertanyaan!",
+          pertanyaan: "Manakah pernyataan di bawah ini yang sesuai dengan ide pokok paragraf di atas?",
+          pilihan_a: "A. Pentingnya menjaga kebersihan lingkungan sekolah secara berkala.",
+          pilihan_b: "B. Peningkatan kualitas pendidikan di era modern.",
+          pilihan_c: "C. Dampak perubahan iklim terhadap sektor pertanian.",
+          pilihan_d: "D. Penggunaan teknologi dalam asesmen nasional.",
+          pilihan_e: "E. Peran guru dalam membimbing siswa berpikir kritis."
+        },
+        {
+          soal_id: "S02",
+          bentuk_soal: "PG",
+          stimulus_teks: "Diberikan persamaan kuadrat \\( x^2 - 5x + 6 = 0 \\).",
+          pertanyaan: "Berapakah nilai dari akar-akar persamaan \\( x_1 \\) dan \\( x_2 \\) tersebut?",
+          pilihan_a: "A. \\( x_1 = 1, x_2 = 6 \\)",
+          pilihan_b: "B. \\( x_1 = 2, x_2 = 3 \\)",
+          pilihan_c: "C. \\( x_1 = -2, x_2 = -3 \\)",
+          pilihan_d: "D. \\( x_1 = 0, x_2 = 5 \\)",
+          pilihan_e: "E. \\( x_1 = 4, x_2 = 1 \\)"
+        }
+      ];
+
+      state.cbt.soalList = demoSoal;
+      state.cbt.currentIndex = 0;
+      state.cbt.jawaban = {};
+      state.cbt.ragu = {};
+      state.cbt.sisaDetik = 45 * 60;
+
+      renderCBTView();
+      startCBTTimer();
+      showView('cbt');
+
+      if (window.MathJax) {
+        MathJax.typesetPromise();
+      }
+    }
+
+    function renderCBTView() {
+      const soal = state.cbt.soalList[state.cbt.currentIndex];
+      if (!soal) return;
+
+      document.getElementById('cbt-soal-num').innerText = `Soal No. ${state.cbt.currentIndex + 1} dari ${state.cbt.soalList.length}`;
+      document.getElementById('cbt-stimulus').innerHTML = soal.stimulus_teks || '';
+      document.getElementById('cbt-pertanyaan').innerHTML = soal.pertanyaan;
+
+      const container = document.getElementById('cbt-pilihan-list');
+      container.innerHTML = '';
+
+      ['a', 'b', 'c', 'd', 'e'].forEach(opt => {
+        if (soal['pilihan_' + opt]) {
+          const isSelected = state.cbt.jawaban[soal.soal_id] === opt.toUpperCase();
+          const div = document.createElement('div');
+          div.className = `option-item ${isSelected ? 'selected' : ''}`;
+          div.onclick = () => pilihJawaban(soal.soal_id, opt.toUpperCase());
+          div.innerHTML = `<strong>${opt.toUpperCase()}.</strong> <span>${soal['pilihan_' + opt]}</span>`;
+          container.appendChild(div);
+        }
+      });
+
+      renderNavGrid();
+
+      if (window.MathJax) {
+        MathJax.typesetPromise();
+      }
+    }
+
+    function pilihJawaban(soalId, pilihan) {
+      state.cbt.jawaban[soalId] = pilihan;
+      renderCBTView();
+    }
+
+    function renderNavGrid() {
+      const grid = document.getElementById('cbt-nav-grid');
+      grid.innerHTML = '';
+
+      state.cbt.soalList.forEach((s, idx) => {
+        const btn = document.createElement('button');
+        let statusClass = '';
+        if (state.cbt.jawaban[s.soal_id]) statusClass = 'dijawab';
+        if (state.cbt.ragu[s.soal_id]) statusClass = 'ragu';
+        if (idx === state.cbt.currentIndex) statusClass += ' active';
+
+        btn.className = `soal-num-btn ${statusClass}`;
+        btn.innerText = idx + 1;
+        btn.onclick = () => {
+          state.cbt.currentIndex = idx;
+          renderCBTView();
+        };
+        grid.appendChild(btn);
+      });
+    }
+
+    function cbtPrevSoal() {
+      if (state.cbt.currentIndex > 0) {
+        state.cbt.currentIndex--;
+        renderCBTView();
+      }
+    }
+
+    function cbtNextSoal() {
+      if (state.cbt.currentIndex < state.cbt.soalList.length - 1) {
+        state.cbt.currentIndex++;
+        renderCBTView();
+      }
+    }
+
+    function cbtTandaiRagu() {
+      const soal = state.cbt.soalList[state.cbt.currentIndex];
+      if (soal) {
+        state.cbt.ragu[soal.soal_id] = !state.cbt.ragu[soal.soal_id];
+        renderCBTView();
+      }
+    }
+
+    function startCBTTimer() {
+      if (state.cbt.timerInterval) clearInterval(state.cbt.timerInterval);
+      state.cbt.timerInterval = setInterval(() => {
+        if (state.cbt.sisaDetik <= 0) {
+          clearInterval(state.cbt.timerInterval);
+          cbtSubmit();
+        } else {
+          state.cbt.sisaDetik--;
+          const m = Math.floor(state.cbt.sisaDetik / 60);
+          const s = state.cbt.sisaDetik % 60;
+          document.getElementById('cbt-timer').innerText = `⏱️ ${m}:${s < 10 ? '0' : ''}${s}`;
+        }
+      }, 1000);
+    }
+
+    function cbtSubmit() {
+      clearInterval(state.cbt.timerInterval);
+      showToast("Ujian diselesaikan! Mengalkulasi skor...");
+      
+      let dijawab = Object.keys(state.cbt.jawaban).length;
+      alert(`Simulasi Selesai!\n\nJumlah Soal: ${state.cbt.soalList.length}\nSoal Dijawab: ${dijawab}\nSkor TKA Estimasi: 85/100`);
+      
+      showView('dashboard');
+    }
+  </script>
+</body>
+</html>
